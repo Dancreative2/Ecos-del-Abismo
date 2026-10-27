@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#10131d">
+<title>Ecos del Abismo — Prototipo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="game-shell">
+  <header class="topbar">
+    <div><div class="eyebrow">PROTOTIPO JUGABLE · V0.1</div><h1>ECOS <span>DEL ABISMO</span></h1></div>
+    <div class="top-actions"><button id="helpBtn" class="secondary">Cómo jugar</button><button id="restartBtn">Reiniciar</button></div>
+  </header>
+  <main class="layout">
+    <section class="arena-panel">
+      <div class="arena-heading"><div><span class="eyebrow" id="region">REGIÓN I · CRIPTAS OLVIDADAS</span><h2 id="dungeonTitle">Mazmorra 1: Umbral de piedra</h2></div><div class="floor-pill" id="floorPill">1 / 9</div></div>
+      <div class="arena-wrap">
+        <canvas id="arena" width="900" height="520" aria-label="Campo de batalla del juego"></canvas>
+        <div class="toast" id="toast">¡Explora la mazmorra!</div>
+        <div class="touch-controls" aria-label="Controles táctiles">
+          <div class="dpad"><button data-move="up">▲</button><div><button data-move="left">◀</button><button data-move="down">▼</button><button data-move="right">▶</button></div></div>
+          <button id="attackTouch" class="attack-touch">ATACAR</button>
+        </div>
+      </div>
+      <div class="controls-hint">Mover: <kbd>WASD</kbd> o flechas · Atacar: <kbd>Espacio</kbd> · Habilidad: <kbd>E</kbd> · También puedes usar los controles táctiles.</div>
+      <div class="action-row"><button id="attackBtn" class="primary">⚔ Atacar</button><button id="skillBtn" class="magic">✦ Pulso arcano (E)</button><button id="potionBtn" class="secondary">♥ Poción (<span id="potions">2</span>)</button></div>
+    </section>
+    <aside class="side-panel">
+      <section class="card hero-card"><div class="card-title">TU EXPLORADOR <span class="level" id="level">NV 1</span></div><div class="hero-name">Aren, caminante del eco</div><div class="stat-line"><span>Salud</span><b id="hpText">100 / 100</b></div><div class="bar"><div id="hpBar" class="hp-fill"></div></div><div class="stat-line"><span>Maná</span><b id="mpText">40 / 40</b></div><div class="bar"><div id="mpBar" class="mp-fill"></div></div><div class="stat-line"><span>Experiencia</span><b id="xpText">0 / 30</b></div><div class="bar"><div id="xpBar" class="xp-fill"></div></div><div class="attributes"><div><small>Fuerza</small><b id="str">8</b></div><div><small>Magia</small><b id="mag">8</b></div><div><small>Destreza</small><b id="dex">6</b></div></div></section>
+      <section class="card"><div class="card-title">COMPAÑEROS <span class="muted">EQUIPO DE 3</span></div><div id="party" class="party"><div class="companion locked"><span>?</span><div><b>Espacio de aliado</b><small>Explora para reclutar</small></div></div><div class="companion locked"><span>?</span><div><b>Espacio de aliado</b><small>Explora para reclutar</small></div></div></div></section>
+      <section class="card"><div class="card-title">OBJETIVO</div><p id="objective">Derrota a las criaturas y encuentra la salida.</p><div class="enemy-line"><span id="enemyIcon">☠</span><div><b id="enemyName">Rata de cripta</b><small id="enemyDesc">Una criatura débil, pero inquieta.</small></div></div><div class="stat-line"><span>Salud enemiga</span><b id="enemyHpText">25 / 25</b></div><div class="bar"><div id="enemyHpBar" class="enemy-fill"></div></div></section>
+      <section class="card log-card"><div class="card-title">CRÓNICA DE COMBATE</div><div id="log" class="log"><p>El abismo te observa. Da el primer paso.</p></div></section>
+    </aside>
+  </main>
+  <footer>ECOS DEL ABISMO · Proyecto experimental. Progreso local durante esta sesión; multijugador aún no implementado.</footer>
+</div>
+<div id="modal" class="modal hidden"><div class="modal-card"><button id="closeModal" class="close">×</button><div class="eyebrow">GUÍA DEL EXPLORADOR</div><h2>Sobrevive. Evoluciona. Recluta.</h2><p>Muévete por la arena y acércate a la criatura para atacar. El ataque básico no consume maná; el Pulso arcano golpea con más fuerza y consume 10 de maná. Las pociones recuperan salud.</p><p>Al derrotar enemigos consigues experiencia. Cada tres mazmorras aparece un jefe. Algunas victorias desbloquean aliados que combaten contigo automáticamente.</p><p><b>Consejo:</b> no gastes todo el maná antes de un jefe. Derrotar al jefe de la mazmorra 3 abre la siguiente región.</p><button id="closeModal2" class="primary">¡Entendido!</button></div></div>
+<script src="game.js"></script>
+</body>
+</html>
