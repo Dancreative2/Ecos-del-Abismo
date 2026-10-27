@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#0b0d13"><title>Ecos del Abismo — v0.2</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<header class="top">
+ <div><div class="eyebrow">RPG DE FANTASÍA OSCURA · VERSIÓN 0.2</div><h1>ECOS <span>DEL ABISMO</span></h1></div>
+ <div class="top-buttons"><button id="helpBtn" class="soft">Guía</button><button id="restartBtn" class="soft">Reiniciar</button></div>
+</header>
+<main class="grid">
+<section class="game-panel">
+ <div class="dungeon-heading"><div><div class="eyebrow" id="regionLabel">REGIÓN I · CRIPTAS OLVIDADAS</div><h2 id="dungeonName">La cripta de los susurros</h2></div><span class="chip" id="floorLabel">MAZMORRA 1 / 9</span></div>
+ <div class="canvas-wrap"><canvas id="game" width="960" height="640" aria-label="Mazmorra explorable"></canvas><div id="toast" class="toast">Explora la cripta. Acércate a los enemigos para atacar.</div>
+ <div class="mobile-controls">
+  <div class="pad"><button data-key="up">▲</button><div><button data-key="left">◀</button><button data-key="down">▼</button><button data-key="right">▶</button></div></div>
+  <div class="mobile-actions"><button id="touchAttack" class="attack">⚔</button><button id="touchSkill" class="skill">✦</button></div>
+ </div></div>
+ <div class="hint"><kbd>W A S D</kbd> / flechas mover · <kbd>Espacio</kbd> atacar · <kbd>E</kbd> habilidad · Explora las habitaciones y encuentra la puerta.</div>
+ <div class="actions"><button id="attackBtn" class="attack">⚔ Ataque básico</button><button id="skillBtn" class="skill">✦ Pulso arcano (E)</button><button id="potionBtn" class="soft">♥ Poción <b id="potionCount">2</b></button></div>
+ <div class="quest"><span class="quest-icon">✧</span><div><b id="questTitle">Objetivo de expedición</b><p id="questText">Derrota a los guardianes y encuentra la puerta sellada.</p></div></div>
+</section>
+<aside class="sidebar">
+ <section class="card">
+  <div class="card-head">EXPLORADOR <span id="level" class="level">NV 1</span></div><h3>Aren, caminante del eco</h3>
+  <div class="stat"><span>Salud</span><b id="hpText">100 / 100</b></div><div class="bar"><i id="hpBar" class="hp"></i></div>
+  <div class="stat"><span>Maná</span><b id="mpText">40 / 40</b></div><div class="bar"><i id="mpBar" class="mp"></i></div>
+  <div class="stat"><span>Experiencia</span><b id="xpText">0 / 30</b></div><div class="bar"><i id="xpBar" class="xp"></i></div>
+  <div class="stats"><div><small>Fuerza</small><b id="str">8</b></div><div><small>Magia</small><b id="mag">8</b></div><div><small>Destreza</small><b id="dex">6</b></div></div>
+ </section>
+ <section class="card"><div class="card-head">COMPAÑEROS <span class="sub">EQUIPO DE 3</span></div><div id="party" class="party"></div></section>
+ <section class="card enemy-card"><div class="card-head">CRIATURA OBJETIVO</div><div class="enemy-info"><span id="enemyGlyph">☠</span><div><b id="enemyName">Rata de cripta</b><small id="enemyDesc">Acecha entre las piedras.</small></div></div><div class="stat"><span>Salud enemiga</span><b id="enemyHpText">30 / 30</b></div><div class="bar"><i id="enemyHpBar" class="enemy-hp"></i></div><p id="enemyStatus" class="small-note">Explora para encontrar enemigos.</p></section>
+ <section class="card log-card"><div class="card-head">CRÓNICA</div><div id="log" class="log"></div></section>
+</aside>
+</main>
+<footer>ECOS DEL ABISMO · PROTOTIPO 0.2 · Exploración individual · Progreso no persistente todavía</footer>
+</div>
+<div id="modal" class="modal"><div class="modal-card"><button id="closeHelp" class="close">×</button><div class="eyebrow">MANUAL DEL EXPLORADOR</div><h2>La cripta te espera</h2><p><b>Explora:</b> mueve a Aren por las habitaciones. Los muros bloquean el paso. Busca enemigos, cofres y la puerta de salida.</p><p><b>Combate:</b> acércate a un enemigo y usa Ataque básico. El Pulso arcano consume 10 de maná. Lyra lanza apoyo mágico y Brom reduce el daño cuando se une.</p><p><b>Progresión:</b> gana experiencia, sube de nivel y vence al jefe cada tres mazmorras. Derrota a todos los guardianes de una sala para abrir la salida.</p><button id="startBtn" class="attack full">Entrar a la mazmorra</button></div></div>
+<script src="game.js"></script>
+</body></html>
